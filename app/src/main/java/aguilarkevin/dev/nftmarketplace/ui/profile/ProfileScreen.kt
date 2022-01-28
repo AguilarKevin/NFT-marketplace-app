@@ -1,12 +1,16 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile
 
 import aguilarkevin.dev.nftmarketplace.R
+import aguilarkevin.dev.nftmarketplace.ui.components.tabs.TabItem
+import aguilarkevin.dev.nftmarketplace.ui.components.tabs.Tabs
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileCard
-import androidx.compose.foundation.layout.size
+import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -41,7 +45,25 @@ fun ProfileScreen() {
             )
         }
     ) {
-        ProfileCard()
+        Column( verticalArrangement = Arrangement.spacedBy(32.dp)) {
+            ProfileCard()
+
+            Tabs(horizontaAlignment = Alignment.CenterHorizontally) {
+                TabItem(
+                    onClick = { /*TODO*/ },
+                    label = "OnSale(0)"
+                )
+                TabItem(
+                    onClick = { /*TODO*/ },
+                    label = "Owned(321)"
+                )
+                TabItem(
+                    onClick = { /*TODO*/ },
+                    label = "Created(128)"
+                )
+            }
+        }
+
     }
 }
 
@@ -75,6 +97,20 @@ fun ProfileScreenPreview(){
             )
         }
     ) {
-        ProfileCard()
+//        ProfileCard()
+        Tabs(horizontaAlignment = Alignment.CenterHorizontally) {
+            TabItem(
+                onClick = { /*TODO*/ },
+                label = "OnSale(0)"
+            )
+            TabItem(
+                onClick = { /*TODO*/ },
+                label = "Owned(321)"
+            )
+            TabItem(
+                onClick = { /*TODO*/ },
+                label = "Created(128)"
+            )
+        }
     }
 }
