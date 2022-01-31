@@ -6,6 +6,7 @@ import aguilarkevin.dev.nftmarketplace.ui.components.tabs.Tabs
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileCard
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileTabs
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -18,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+@ExperimentalFoundationApi
 @ExperimentalMaterial3Api
 @Composable
 fun ProfileScreen() {
@@ -56,6 +58,7 @@ fun ProfileScreen() {
 
 
 
+@ExperimentalFoundationApi
 @ExperimentalMaterial3Api
 @Preview
 @Composable

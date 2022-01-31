@@ -3,6 +3,7 @@ package aguilarkevin.dev.nftmarketplace
 import aguilarkevin.dev.nftmarketplace.ui.overview.OverviewScreen
 import aguilarkevin.dev.nftmarketplace.ui.profile.ProfileScreen
 import aguilarkevin.dev.nftmarketplace.ui.theme.*
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
@@ -22,6 +23,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
 
+@ExperimentalFoundationApi
 @ExperimentalMaterial3Api
 @Composable
 fun NFTMarketplaceApp() {
@@ -31,7 +33,7 @@ fun NFTMarketplaceApp() {
             containerColor = backgroundGray,
             bottomBar = { AppNavigationBar(navController) }
         ) {
-            NavHost(navController, startDestination = "profile") {
+            NavHost(navController, startDestination = "explore") {
                 composable("overview") {
                     OverviewScreen()
                 }
