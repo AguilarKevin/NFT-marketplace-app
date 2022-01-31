@@ -2,8 +2,7 @@ package aguilarkevin.dev.nftmarketplace
 
 import aguilarkevin.dev.nftmarketplace.ui.overview.OverviewScreen
 import aguilarkevin.dev.nftmarketplace.ui.profile.ProfileScreen
-import aguilarkevin.dev.nftmarketplace.ui.theme.NFTMarketplaceTheme
-import aguilarkevin.dev.nftmarketplace.ui.theme.backgroundGray
+import aguilarkevin.dev.nftmarketplace.ui.theme.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
@@ -71,7 +70,12 @@ fun AppNavigationBar(navController: NavHostController) {
         ) {
             for (screen in screens) {
                 NavigationBarItem(
-//                    colors = NavigationBarItemDefaults.colors(),
+                    colors = NavigationBarItemDefaults
+                        .colors(
+                            indicatorColor = buttonContainerGray,
+                            selectedIconColor = primaryColor,
+                            unselectedIconColor = Color.LightGray
+                        ),
                     icon = {
                         Icon(
                             contentDescription = null,

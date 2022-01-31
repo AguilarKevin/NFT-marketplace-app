@@ -10,14 +10,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun Tabs(horizontaAlignment: Alignment.Horizontal,  content: @Composable RowScope.() -> Unit){
+fun Tabs(horizontalAlignment: Alignment.Horizontal, tabItems : @Composable RowScope.() -> Unit, content: @Composable ColumnScope.() -> Unit){
     Column(
-        horizontalAlignment = horizontaAlignment,
+        horizontalAlignment = horizontalAlignment,
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.fillMaxWidth(),
-            content = content
+            content = tabItems
         )
+        content()
     }
 }

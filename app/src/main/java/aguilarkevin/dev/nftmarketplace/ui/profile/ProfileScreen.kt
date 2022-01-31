@@ -4,6 +4,7 @@ import aguilarkevin.dev.nftmarketplace.R
 import aguilarkevin.dev.nftmarketplace.ui.components.tabs.TabItem
 import aguilarkevin.dev.nftmarketplace.ui.components.tabs.Tabs
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileCard
+import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileTabs
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -47,21 +48,7 @@ fun ProfileScreen() {
     ) {
         Column( verticalArrangement = Arrangement.spacedBy(32.dp)) {
             ProfileCard()
-
-            Tabs(horizontaAlignment = Alignment.CenterHorizontally) {
-                TabItem(
-                    onClick = { /*TODO*/ },
-                    label = "OnSale(0)"
-                )
-                TabItem(
-                    onClick = { /*TODO*/ },
-                    label = "Owned(321)"
-                )
-                TabItem(
-                    onClick = { /*TODO*/ },
-                    label = "Created(128)"
-                )
-            }
+            ProfileTabs()
         }
 
     }
@@ -98,19 +85,6 @@ fun ProfileScreenPreview(){
         }
     ) {
 //        ProfileCard()
-        Tabs(horizontaAlignment = Alignment.CenterHorizontally) {
-            TabItem(
-                onClick = { /*TODO*/ },
-                label = "OnSale(0)"
-            )
-            TabItem(
-                onClick = { /*TODO*/ },
-                label = "Owned(321)"
-            )
-            TabItem(
-                onClick = { /*TODO*/ },
-                label = "Created(128)"
-            )
-        }
+        ProfileTabs()
     }
 }

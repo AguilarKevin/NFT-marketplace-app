@@ -1,5 +1,6 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile.components
 
+import aguilarkevin.dev.nftmarketplace.ui.components.Avatar
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContentGreen
 import androidx.compose.foundation.layout.*

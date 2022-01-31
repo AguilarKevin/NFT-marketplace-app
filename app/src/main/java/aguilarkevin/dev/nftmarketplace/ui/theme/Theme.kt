@@ -41,6 +41,5 @@ fun NFTMarketplaceTheme(
         typography = Typography,
         shapes = Shapes,
         content = content,
-
     )
 }

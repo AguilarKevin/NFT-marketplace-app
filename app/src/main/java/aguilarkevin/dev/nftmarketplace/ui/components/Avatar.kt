@@ -1,4 +1,4 @@
-package aguilarkevin.dev.nftmarketplace.ui.profile.components
+package aguilarkevin.dev.nftmarketplace.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,7 +11,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
 
