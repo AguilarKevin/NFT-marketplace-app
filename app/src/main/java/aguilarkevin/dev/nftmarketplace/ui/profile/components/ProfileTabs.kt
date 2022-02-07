@@ -29,7 +29,7 @@ import com.skydoves.landscapist.glide.GlideImage
 @ExperimentalFoundationApi
 @Composable
 fun ProfileTabs() {
-    val data = listOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
+    val data = listOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
 
     Tabs(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,7 +56,8 @@ fun ProfileTabs() {
             cells = GridCells.Adaptive(150.dp),
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
-            horizontalArrangement = Arrangement.spacedBy(14.dp)
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+            modifier = Modifier.fillMaxHeight()
         ) {
             for (card in data) {
                 item {

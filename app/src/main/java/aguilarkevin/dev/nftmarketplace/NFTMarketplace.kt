@@ -1,5 +1,6 @@
 package aguilarkevin.dev.nftmarketplace
 
+import aguilarkevin.dev.nftmarketplace.ui.explore.ExploreScreen
 import aguilarkevin.dev.nftmarketplace.ui.overview.OverviewScreen
 import aguilarkevin.dev.nftmarketplace.ui.profile.ProfileScreen
 import aguilarkevin.dev.nftmarketplace.ui.theme.*
@@ -32,13 +33,13 @@ fun NFTMarketplaceApp() {
         Scaffold(
             containerColor = backgroundGray,
             bottomBar = { AppNavigationBar(navController) }
-        ) {
-            NavHost(navController, startDestination = "explore") {
+        ) { contentPadding ->
+            NavHost(navController, startDestination = "profile", modifier = Modifier.padding(contentPadding)) {
                 composable("overview") {
                     OverviewScreen()
                 }
                 composable("explore") {
-                    Text("explore")
+                    ExploreScreen()
                 }
                 composable("alerts") {
                     Text("notifications")

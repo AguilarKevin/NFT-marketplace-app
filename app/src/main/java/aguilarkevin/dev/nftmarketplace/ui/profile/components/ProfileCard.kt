@@ -24,13 +24,13 @@ import androidx.compose.ui.unit.sp
 fun ProfileCard() {
     Column(modifier = Modifier.fillMaxWidth()) {
         Card(
-            elevation = 4.dp,
+            elevation = 0.9.dp,
             shape = RoundedCornerShape(bottomEnd = 24.dp, bottomStart = 24.dp),
             backgroundColor = Color.White,
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(
-                modifier = Modifier.padding(14.dp),
+                modifier = Modifier.padding(horizontal = 14.dp).padding(bottom = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
