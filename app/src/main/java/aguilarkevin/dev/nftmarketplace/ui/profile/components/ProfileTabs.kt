@@ -104,7 +104,7 @@ fun ProfileTabs() {
                                     verticalArrangement = Arrangement.SpaceBetween
                                 ) {
                                     Text(
-                                        text = "Lost bid",
+                                        text = "Last bid",
                                         fontSize = 13.sp,
                                         fontWeight  = FontWeight.SemiBold,
                                         color = Color.LightGray

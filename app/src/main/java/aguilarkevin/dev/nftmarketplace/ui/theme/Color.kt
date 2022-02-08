@@ -11,3 +11,4 @@ val backgroundGray = Color(0xFFF3F3F3)
 val buttonContainerGray = Color(0xFFF3F3F3)
 
 val buttonContentGreen = Color(0xFF4CAF50)
+val buttonContentGray = Color(0xFF7C7C7C)

@@ -1,11 +1,11 @@
 package aguilarkevin.dev.nftmarketplace.ui.explore
 
+import aguilarkevin.dev.nftmarketplace.ui.components.Menu
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ExploreScreen(){
+fun ExploreScreen() {
     Column(
         verticalArrangement = Arrangement.spacedBy(28.dp),
         modifier = Modifier
@@ -34,18 +34,28 @@ fun ExploreScreen(){
 
         TextField(
             value = "",
-            onValueChange = {/*TODO*/},
+            onValueChange = {/*TODO*/ },
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color.White,
                 trailingIconColor = Color.White
             ),
-            trailingIcon = { Box(modifier = Modifier
-                .background(color = Color.Black, shape = CircleShape)
-                .padding(2.dp)){
-                Icon( Icons.Filled.Search, contentDescription = null)
-            } },
+            trailingIcon = {
+                Box(
+                    modifier = Modifier
+                        .background(color = Color.Black, shape = CircleShape)
+                        .padding(2.dp)
+                ) {
+                    Icon(Icons.Filled.Search, contentDescription = null)
+                }
+            },
             shape = RoundedCornerShape(24.dp),
             modifier = Modifier.fillMaxWidth()
         )
+
+        Row (modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween){
+            Menu(label = "Category", items = listOf("opt 1", "opt 2"))
+            Menu(label = "Collection", items = listOf("opt 1", "opt 2"))
+            Menu(label = "Short by", items = listOf("opt 1", "opt 2"))
+        }
     }
 }
