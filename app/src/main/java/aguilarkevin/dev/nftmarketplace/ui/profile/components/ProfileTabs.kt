@@ -57,7 +57,7 @@ fun ProfileTabs() {
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
             horizontalArrangement = Arrangement.spacedBy(14.dp),
-            modifier = Modifier.fillMaxHeight()
+//            modifier = Modifier.fillMaxHeight()
         ) {
             for (card in data) {
                 item {

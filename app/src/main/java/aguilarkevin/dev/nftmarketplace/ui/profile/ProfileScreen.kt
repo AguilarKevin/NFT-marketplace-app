@@ -8,10 +8,13 @@ import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileTabs
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -31,26 +34,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ProfileScreen() {
 
-    val toolbarHeight = 48.dp
-    val toolbarHeightPx = with(LocalDensity.current) { toolbarHeight.roundToPx().toFloat() }
-    // our offset to collapse toolbar
-    val toolbarOffsetHeightPx = remember { mutableStateOf(0f) }
-    // now, let's create connection to the nested scroll system and listen to the scroll
-    // happening inside child LazyColumn
-    val nestedScrollConnection = remember {
-        object : NestedScrollConnection {
-            override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
-                // try to consume before LazyColumn to collapse toolbar if needed, hence pre-scroll
-                val delta = available.y
-                val newOffset = toolbarOffsetHeightPx.value + delta
-                toolbarOffsetHeightPx.value = newOffset.coerceIn(-toolbarHeightPx, 0f)
-                // here's the catch: let's pretend we consumed 0 in any case, since we want
-                // LazyColumn to scroll anyway for good UX
-                // We're basically watching scroll without taking it
-                return Offset.Zero
-            }
-        }
-    }
+
+    val scrollState = rememberScrollState()
 
     Scaffold(
         topBar = {
@@ -78,7 +63,7 @@ fun ProfileScreen() {
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(32.dp),
-//            modifier = Modifier.nestedScroll()
+//            modifier = Modifier.verticalScroll(scrollState)
         ) {
             ProfileCard()
             ProfileTabs()

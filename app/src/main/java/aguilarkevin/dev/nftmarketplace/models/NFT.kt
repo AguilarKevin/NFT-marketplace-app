@@ -1,9 +1,10 @@
 package aguilarkevin.dev.nftmarketplace.models
 
-class NFT {
-
-    private lateinit var title: String
-    private lateinit var assetUrl: String
-    private lateinit var owner: User
-    private lateinit var bids: List<Bid>
+data class NFT(
+    val id: String?,
+    val title: String,
+    val assetUrl: String,
+    val owner: User,
+    val bids: List<Bid>
+) {
 }
