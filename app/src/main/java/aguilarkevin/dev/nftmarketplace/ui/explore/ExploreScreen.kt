@@ -12,15 +12,19 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
-import androidx.compose.material.TextField
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -76,9 +80,13 @@ fun ExploreScreen() {
     )
 
     val scrollState = rememberScrollState()
+    var text = rememberSaveable {
+        mutableStateOf("")
+    }
+
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(28.dp),
+        verticalArrangement = Arrangement.spacedBy(18.dp),
         modifier = Modifier
             .fillMaxWidth()
             .verticalScroll(scrollState)
@@ -90,10 +98,11 @@ fun ExploreScreen() {
             fontSize = 28.sp
         )
 
-        TextField(
-            value = "",
-            onValueChange = {/*TODO*/ },
-            colors = TextFieldDefaults.textFieldColors(
+        OutlinedTextField(
+            value = text.value,
+            onValueChange = { text.value = it},
+            singleLine = true,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
                 backgroundColor = Color.White,
                 trailingIconColor = Color.White
             ),
@@ -101,13 +110,16 @@ fun ExploreScreen() {
                 Box(
                     modifier = Modifier
                         .background(color = Color.Black, shape = CircleShape)
-                        .padding(2.dp)
+                        .padding(14.dp)
+                        .fillMaxHeight()
                 ) {
                     Icon(Icons.Filled.Search, contentDescription = null)
                 }
             },
-            shape = RoundedCornerShape(24.dp),
-            modifier = Modifier.fillMaxWidth()
+            shape = RoundedCornerShape(28.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Color.White, shape = RoundedCornerShape(28.dp))
         )
 
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {

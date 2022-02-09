@@ -1,10 +1,12 @@
 package aguilarkevin.dev.nftmarketplace.ui.explore.components
 
+import aguilarkevin.dev.nftmarketplace.NFTActivity
 import aguilarkevin.dev.nftmarketplace.R
 import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.Avatar
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -27,8 +30,11 @@ import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
 fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: String) {
+
+    val ctx = LocalContext.current
+
     Card(
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(24.dp),
         backgroundColor = Color.White
     ) {
         Column(
@@ -43,7 +49,7 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(12.dp))
             )
-            Column(modifier = Modifier.padding(vertical = 6.dp)) {
+            Column(modifier = Modifier.padding(top = 6.dp)) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     Avatar(imageUrl = owner.avatarUrl, size = 42.dp)
                     Column {
@@ -95,14 +101,11 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
                     }
 
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { ctx.startActivity(Intent(ctx, NFTActivity::class.java)) },
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = primaryColor)
                     ) {
-                        Text(text = "Place a bid", color = Color.White)
-                    }
-                }
-            }
+                        Text(text = "Place a bid", color = Co}
         }
     }
 }
