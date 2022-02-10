@@ -1,16 +1,24 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile
 
 import aguilarkevin.dev.nftmarketplace.R
+import aguilarkevin.dev.nftmarketplace.models.Bid
+import aguilarkevin.dev.nftmarketplace.models.NFT
+import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileCard
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileTabs
+import aguilarkevin.dev.nftmarketplace.ui.theme.backgroundGray
+import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -21,6 +29,11 @@ import androidx.compose.ui.unit.dp
 @ExperimentalMaterial3Api
 @Composable
 fun ProfileScreen() {
+
+    val decayAnimationSpec = rememberSplineBasedDecay<Float>()
+    val scrollBehavior = remember(decayAnimationSpec) {
+        TopAppBarDefaults.exitUntilCollapsedScrollBehavior(decayAnimationSpec)
+    }
 
     Scaffold(
         topBar = {
@@ -42,13 +55,14 @@ fun ProfileScreen() {
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = Color.White
-                )
+                ),
+                scrollBehavior = scrollBehavior
             )
         }
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(32.dp),
-//            modifier = Modifier.verticalScroll(scrollState)
+            modifier = Modifier.background(color = backgroundGray)
         ) {
             ProfileCard()
             ProfileTabs()

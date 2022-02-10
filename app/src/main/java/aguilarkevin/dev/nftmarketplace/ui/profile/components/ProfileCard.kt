@@ -1,7 +1,9 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile.components
 
+import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.Avatar
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
+import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerLightGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContentGreen
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,9 +24,15 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun ProfileCard() {
+    val user = User(
+        name = "Kevin Aguilar",
+        avatarUrl = "https://lh3.googleusercontent.com/Y5GFseIm0B_jQnjUM9Yg4dYXeD6N6593lDyjuRD-MjMpd-6ly6pTy3-nIv8UzYftS5DjnkaPGx6Gfg0hTxOb-SZOqg=w600",
+        description = "conceptual collector"
+    )
+
     Column(modifier = Modifier.fillMaxWidth()) {
         Card(
-            elevation = 0.9.dp,
+            elevation = 0.dp,
             shape = RoundedCornerShape(bottomEnd = 24.dp, bottomStart = 24.dp),
             backgroundColor = Color.White,
             modifier = Modifier.fillMaxWidth()
@@ -40,24 +48,24 @@ fun ProfileCard() {
                 ) {
 
                     ProfileBanner(
-                        imageUrl = "https://images.unsplash.com/photo-1567095716798-1d95d8f4c479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                        imageUrl = "https://w0.peakpx.com/wallpaper/779/367/HD-wallpaper-retro-car-to-synthwave-city-synthwave-retrowave-vaporwave-artist-artwork-digital-art-artstation.jpg",
                         height = 140.dp
                     )
 
                     Avatar(
-                        imageUrl = "https://avatars.githubusercontent.com/u/36524241?v=4",
+                        imageUrl = user.avatarUrl,
                         size = 92.dp
                     )
 
                 }
 
                 Text(
-                    text = "Kevin Aguilar",
+                    text = user.name,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                 )
                 Text(
-                    text = "Conceptual Collector",
+                    text = user.description,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = Color.LightGray
@@ -72,7 +80,7 @@ fun ProfileCard() {
                 ) {
                     FilledTonalButton(
                         onClick = { /*TODO*/ },
-                        colors = ButtonDefaults.filledTonalButtonColors(containerColor = buttonContainerGray)
+                        colors = ButtonDefaults.filledTonalButtonColors(containerColor = buttonContainerLightGray)
                     ) {
 
                         Icon(

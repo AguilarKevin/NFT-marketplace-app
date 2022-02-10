@@ -37,7 +37,8 @@ fun NFTCard(nft: NFT) {
 
     Card(
         shape = RoundedCornerShape(24.dp),
-        backgroundColor = Color.White
+        backgroundColor = Color.White,
+        elevation = 0.dp
     ) {
         Column(
             modifier = Modifier.padding(14.dp),

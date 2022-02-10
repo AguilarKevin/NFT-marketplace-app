@@ -34,7 +34,7 @@ fun NFTMarketplaceApp() {
             containerColor = backgroundGray,
             bottomBar = { AppNavigationBar(navController) }
         ) { contentPadding ->
-            NavHost(navController, startDestination = "explore", modifier = Modifier.padding(contentPadding)) {
+            NavHost(navController, startDestination = "profile", modifier = Modifier.padding(contentPadding)) {
                 composable("overview") {
                     OverviewScreen()
                 }

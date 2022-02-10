@@ -1,6 +1,9 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile.components
 
 import aguilarkevin.dev.nftmarketplace.R
+import aguilarkevin.dev.nftmarketplace.models.Bid
+import aguilarkevin.dev.nftmarketplace.models.NFT
+import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.tabs.TabItem
 import aguilarkevin.dev.nftmarketplace.ui.components.tabs.Tabs
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
@@ -29,7 +32,53 @@ import com.skydoves.landscapist.glide.GlideImage
 @ExperimentalFoundationApi
 @Composable
 fun ProfileTabs() {
-    val data = listOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
+    val nftItems = listOf(
+        NFT(
+            id = "#11231",
+            title = "Fakurian of space #6",
+            owner = User(
+                name = "Kevin Aguilar",
+                avatarUrl = "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/10/25/16351831527188.jpg",
+                description = "conceptual collector"
+            ),
+            assetUrl = "https://images.unsplash.com/photo-1633783156075-a01661455344?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
+
+            bids = listOf<Bid>()
+        ),
+        NFT(
+            id = "#11231",
+            title = "Fakurian of space #6",
+            owner = User(
+                name = "Kevin Aguilar",
+                avatarUrl = "https://preview.redd.it/rytm7cvt3sk51.jpg?width=1100&format=pjpg&auto=webp&s=4601ed4c07cde0292fe6fd51121a0b545ff8c2ad",
+                description = "conceptual collector"
+            ),
+            assetUrl = "https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80",
+            bids = listOf<Bid>()
+        ),
+        NFT(
+            id = "#11231",
+            title = "Fakurian of space #6",
+            owner = User(
+                name = "Kevin Aguilar",
+                avatarUrl = "https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+                description = "conceptual collector"
+            ),
+            assetUrl = "https://images.unsplash.com/photo-1617791160588-241658c0f566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80",
+            bids = listOf<Bid>()
+        ),
+        NFT(
+            id = "#11231",
+            title = "Fakurian of space #6",
+            owner = User(
+                name = "Kevin Aguilar",
+                avatarUrl = "https://i.guim.co.uk/img/media/a49b541c86c50ffc9a183cd3894431950037b383/0_150_4500_2700/master/4500.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=6aaf409397b1e4d4a45d13b7bd489a41",
+                description = "conceptual collector"
+            ),
+            assetUrl = "https://images.unsplash.com/photo-1598705352140-be8e33a97d55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80",
+            bids = listOf<Bid>()
+        )
+    )
 
     Tabs(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -57,72 +106,13 @@ fun ProfileTabs() {
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
             horizontalArrangement = Arrangement.spacedBy(14.dp),
-//            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier.fillMaxHeight()
         ) {
-            for (card in data) {
+            for (nft in nftItems) {
                 item {
-                    Card(
-                        shape = RoundedCornerShape(16.dp),
-                        backgroundColor = Color.White
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(8.dp),
-                            verticalArrangement = Arrangement.spacedBy(4.dp)
-                        ) {
-                            GlideImage(
-                                imageModel = "https://images.unsplash.com/photo-1567095716798-1d95d8f4c479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                                // Crop, Fit, Inside, FillHeight, FillWidth, None
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier
-                                    .height(114.dp)
-                                    .fillMaxWidth()
-                                    .clip(RoundedCornerShape(12.dp))
-                            )
-                            Row(
-                                modifier = Modifier.padding(vertical = 8.dp),
-                                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-
-                                Box(
-                                    modifier = Modifier
-                                        .background(
-                                            buttonContainerGray,
-                                            shape = RoundedCornerShape(8.dp)
-                                        )
-                                        .padding(vertical = 8.dp, horizontal = 6.dp)
-                                ) {
-                                    Icon(
-                                        painter = painterResource(id = R.drawable.ic_sort),
-                                        contentDescription = null,
-                                        tint = primaryColor,
-                                        modifier = Modifier.size(20.dp)
-                                    )
-                                }
-
-                                Column(
-                                    verticalArrangement = Arrangement.SpaceBetween
-                                ) {
-                                    Text(
-                                        text = "Last bid",
-                                        fontSize = 13.sp,
-                                        fontWeight  = FontWeight.SemiBold,
-                                        color = Color.LightGray
-                                    )
-
-                                    Text(
-                                        text = "0.50 ETH",
-                                        fontSize = 14.sp,
-                                        fontWeight = FontWeight.ExtraBold
-                                    )
-                                }
-                            }
-                        }
-                    }
+                    SmallNftCard(nft)
                 }
             }
         }
     }
 }
-
-//data class NFTItem(val title: String, val )

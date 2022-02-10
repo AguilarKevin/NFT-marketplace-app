@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun ExploreScreen() {
 
-    val nftItems = listOf<NFT>(
+    val nftItems = listOf(
         NFT(
             id = "#11231",
             title = "Fakurian of space #6",
@@ -80,7 +80,7 @@ fun ExploreScreen() {
     )
 
     val scrollState = rememberScrollState()
-    var text = rememberSaveable {
+    val text = rememberSaveable {
         mutableStateOf("")
     }
 
