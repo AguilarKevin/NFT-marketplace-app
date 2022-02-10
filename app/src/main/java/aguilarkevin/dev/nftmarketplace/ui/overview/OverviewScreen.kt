@@ -4,6 +4,7 @@ import aguilarkevin.dev.nftmarketplace.models.Bid
 import aguilarkevin.dev.nftmarketplace.models.NFT
 import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.overview.components.HotBidCard
+import aguilarkevin.dev.nftmarketplace.ui.overview.components.SellerCard
 import aguilarkevin.dev.nftmarketplace.ui.theme.textWarningColor
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
@@ -131,7 +132,9 @@ fun OverviewScreen() {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp)
         ) {
             Text(text = "Top seller", fontSize = 18.sp, fontWeight = FontWeight.Bold)
             TextButton(onClick = { /*TODO*/ }) {
@@ -144,7 +147,9 @@ fun OverviewScreen() {
             }
 
         }
-
+        for(nft in nftItems){
+            SellerCard(seller = nft.owner)
+        }
     }
 }
 
