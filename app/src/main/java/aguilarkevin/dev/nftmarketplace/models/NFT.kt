@@ -6,5 +6,4 @@ data class NFT(
     val assetUrl: String,
     val owner: User,
     val bids: List<Bid>
-) {
-}
+)

@@ -63,7 +63,7 @@ fun ProfileScreen() {
 @Preview
 @Composable
 fun ProfileScreenPreview() {
-    Column() {
+    Column {
 //        ProfileCard()
         CenterAlignedTopAppBar(
             title = { Text("User Profile") },
