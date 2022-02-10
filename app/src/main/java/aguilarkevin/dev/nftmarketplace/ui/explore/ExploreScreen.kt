@@ -40,7 +40,7 @@ fun ExploreScreen() {
             ),
             assetUrl = "https://images.unsplash.com/photo-1633783156075-a01661455344?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
 
-            bids = listOf<Bid>()
+            bids = listOf()
         ),
         NFT(
             id = "#11231",
@@ -51,7 +51,7 @@ fun ExploreScreen() {
                 description = "conceptual collector"
             ),
             assetUrl = "https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80",
-            bids = listOf<Bid>()
+            bids = listOf()
         ),
         NFT(
             id = "#11231",
@@ -62,7 +62,7 @@ fun ExploreScreen() {
                 description = "conceptual collector"
             ),
             assetUrl = "https://images.unsplash.com/photo-1617791160588-241658c0f566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80",
-            bids = listOf<Bid>()
+            bids = listOf()
         ),
         NFT(
             id = "#11231",
@@ -73,7 +73,7 @@ fun ExploreScreen() {
                 description = "conceptual collector"
             ),
             assetUrl = "https://images.unsplash.com/photo-1598705352140-be8e33a97d55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80",
-            bids = listOf<Bid>()
+            bids = listOf()
         )
     )
 
@@ -93,7 +93,8 @@ fun ExploreScreen() {
         Text(
             text = "Explore the \nbest NFTArt\uD83D\uDCA5",
             fontWeight = FontWeight.Bold,
-            fontSize = 28.sp
+            fontSize = 26.sp,
+            lineHeight = 34.sp
         )
 
         OutlinedTextField(

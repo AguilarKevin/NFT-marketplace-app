@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,12 +35,12 @@ fun NFTMarketplaceApp() {
         val navController = rememberNavController()
         Scaffold(
             containerColor = backgroundGray,
-            bottomBar = { AppNavigationBar(navController) }
+            bottomBar = { AppNavigationBar(navController) },
         ) { contentPadding ->
             NavHost(
                 navController,
-                startDestination = "profile",
-                modifier = Modifier.padding(contentPadding)
+                startDestination = "overview",
+                modifier = Modifier.padding(bottom = contentPadding.calculateBottomPadding())
             ) {
                 composable("overview") {
                     OverviewScreen()
@@ -96,7 +97,7 @@ fun AppNavigationBar(navController: NavHostController) {
                     onClick = {
                         navController.navigate(screen.route)
                     },
-                    modifier = Modifier.clip(CircleShape)
+                    modifier = Modifier.clip(CircleShape),
                 )
             }
         }

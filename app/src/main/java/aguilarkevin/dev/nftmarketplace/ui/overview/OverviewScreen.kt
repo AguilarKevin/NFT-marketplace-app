@@ -3,25 +3,18 @@ package aguilarkevin.dev.nftmarketplace.ui.overview
 import aguilarkevin.dev.nftmarketplace.models.Bid
 import aguilarkevin.dev.nftmarketplace.models.NFT
 import aguilarkevin.dev.nftmarketplace.models.User
-import aguilarkevin.dev.nftmarketplace.ui.components.Menu
-import aguilarkevin.dev.nftmarketplace.ui.explore.components.NFTCard
-import androidx.compose.foundation.background
+import aguilarkevin.dev.nftmarketplace.ui.overview.components.HotBidCard
+import aguilarkevin.dev.nftmarketplace.ui.theme.textWarningColor
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Scaffold
-import androidx.compose.material.TextFieldDefaults
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.TextButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -79,60 +72,79 @@ fun OverviewScreen() {
         )
     )
 
-    val scrollState = rememberScrollState()
-    val text = rememberSaveable {
-        mutableStateOf("")
-    }
-
-
     Column(
-        verticalArrangement = Arrangement.spacedBy(18.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .verticalScroll(scrollState)
-            .padding(24.dp)
+            .verticalScroll(rememberScrollState())
+            .padding(vertical = 24.dp)
     ) {
-        androidx.compose.material3.Text(
-            text = "Explore the \nbest NFTArt\uD83D\uDCA5",
-            fontWeight = FontWeight.Bold,
-            fontSize = 28.sp
-        )
 
-        OutlinedTextField(
-            value = text.value,
-            onValueChange = { text.value = it },
-            singleLine = true,
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                backgroundColor = Color.White,
-                trailingIconColor = Color.White
-            ),
-            trailingIcon = {
-                Box(
-                    modifier = Modifier
-                        .background(color = Color.Black, shape = CircleShape)
-                        .padding(14.dp)
-                        .fillMaxHeight()
-                ) {
-                    Icon(Icons.Filled.Search, contentDescription = null)
-                }
-            },
-            shape = RoundedCornerShape(28.dp),
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = Color.White, shape = RoundedCornerShape(28.dp))
-        )
-
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Menu(label = "Category", items = listOf("opt 1", "opt 2"))
-            Menu(label = "Collection", items = listOf("opt 1", "opt 2"))
-            Menu(label = "Short by", items = listOf("opt 1", "opt 2"))
-        }
-
-        for (item in nftItems) {
-            NFTCard(
-                nft = item
+                .padding(horizontal = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Text(
+                text = "Find the best \nNFTArt\uD83D\uDCA5",
+                fontWeight = FontWeight.Bold,
+                fontSize = 26.sp,
+                lineHeight = 34.sp
             )
+
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Hot bids", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                TextButton(onClick = { /*TODO*/ }) {
+                    Text(
+                        text = "See all",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = textWarningColor
+                    )
+                }
+
+            }
         }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState())
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 24.dp),
+                horizontalArrangement = Arrangement.spacedBy(18.dp)
+            ) {
+                for (item in nftItems) {
+                    HotBidCard(
+                        nft = item
+                    )
+                }
+            }
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp)
+        ) {
+            Text(text = "Top seller", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            TextButton(onClick = { /*TODO*/ }) {
+                Text(
+                    text = "See all",
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = textWarningColor
+                )
+            }
+
+        }
+
     }
 }
 
