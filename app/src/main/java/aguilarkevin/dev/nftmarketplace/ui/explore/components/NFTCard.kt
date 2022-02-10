@@ -105,7 +105,10 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = primaryColor)
                     ) {
-                        Text(text = "Place a bid", color = Co}
+                        Text(text = "Place a bid", color = Color.White)
+                    }
+                }
+            }
         }
     }
 }

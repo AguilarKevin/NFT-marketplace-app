@@ -65,6 +65,11 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
+    //Jetpack window manager
+    implementation "androidx.window:window:1.0.0"
+    implementation "androidx.window:window-testing:1.0.0"
+
+
     //glide jetpack compose
     implementation 'com.github.skydoves:landscapist-glide:1.4.6'
 

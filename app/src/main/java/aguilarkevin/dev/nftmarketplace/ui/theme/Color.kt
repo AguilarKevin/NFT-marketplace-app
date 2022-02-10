@@ -6,9 +6,11 @@ val primaryColor = Color(0xFF2B2D41)
 val primaryColorLight = Color(0xF7DFDFFC)
 val secondaryColor = Color(0xCC899BDB)
 
-val backgroundGray = Color(0xFFF3F3F3)
+val backgroundGray = Color(0xFFF8F8F8)
 
-val buttonContainerGray = Color(0xFFF3F3F3)
+val buttonContainerGray = Color(0xFFE9E9E9)
 
 val buttonContentGreen = Color(0xFF4CAF50)
 val buttonContentGray = Color(0xFF7C7C7C)
+
+val textWarningColor = Color(0xFFF3AB3F)
