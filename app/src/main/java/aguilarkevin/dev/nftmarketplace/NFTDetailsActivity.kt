@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -40,19 +41,24 @@ class NFTDetailsActivity : ComponentActivity() {
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun NftActivity() {
+
+    val ctx = LocalContext.current
+    val intent =  (ctx as NFTDetailsActivity).intent
+
     val nft = NFT(
-        id = "#11231",
-        title = "Fakurian of space #6",
+        title = intent.getStringExtra("title") ?: "",
+        assetUrl = intent.getStringExtra("assetUrl") ?: "",
         owner = User(
-            name = "Kevin Aguilar",
-            avatarUrl = "https://preview.redd.it/rytm7cvt3sk51.jpg?width=1100&format=pjpg&auto=webp&s=4601ed4c07cde0292fe6fd51121a0b545ff8c2ad",
-            description = "conceptual collector"
+            name = intent.getStringExtra("ownerName") ?: "",
+            avatarUrl = intent.getStringExtra("ownerAvatar") ?: "",
+            description = "Creator",
         ),
-        assetUrl = "https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80",
-        bids = listOf()
+        bids = listOf(),
+        id = ""
     )
 
     Scaffold(
@@ -70,7 +76,7 @@ private fun NftActivity() {
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = { ctx.onBackPressed() }) {
                         Surface(color = Color.White, shape = RoundedCornerShape(10.dp)) {
                             Icon(
                                 Icons.Filled.ArrowBack,
@@ -253,6 +259,6 @@ private fun NftActivity() {
 @Composable
 fun DefaultPreview() {
     NFTMarketplaceTheme {
-        NftActivity()
+//        NftActivity(nft)
     }
 }

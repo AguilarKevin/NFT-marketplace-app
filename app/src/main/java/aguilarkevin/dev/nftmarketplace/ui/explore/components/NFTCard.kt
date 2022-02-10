@@ -1,12 +1,14 @@
 package aguilarkevin.dev.nftmarketplace.ui.explore.components
 
-import aguilarkevin.dev.nftmarketplace.NFTActivity
+import aguilarkevin.dev.nftmarketplace.NFTDetailsActivity
 import aguilarkevin.dev.nftmarketplace.R
+import aguilarkevin.dev.nftmarketplace.models.NFT
 import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.Avatar
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import android.content.Intent
+import android.os.Bundle
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,7 +31,7 @@ import androidx.compose.ui.unit.sp
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: String) {
+fun NFTCard(nft: NFT) {
 
     val ctx = LocalContext.current
 
@@ -42,7 +44,7 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             GlideImage(
-                imageModel = imageUrl,
+                imageModel = nft.assetUrl,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .height(200.dp)
@@ -51,10 +53,10 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
             )
             Column(modifier = Modifier.padding(top = 6.dp)) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Avatar(imageUrl = owner.avatarUrl, size = 42.dp)
+                    Avatar(imageUrl = nft.owner.avatarUrl, size = 42.dp)
                     Column {
-                        Text(text = title, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-                        Text(text = owner.name, color = Color.LightGray)
+                        Text(text = nft.title, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                        Text(text = nft.owner.name, color = Color.LightGray)
                     }
                 }
                 Row(
@@ -93,7 +95,7 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
                             )
 
                             Text(
-                                text = "$lastBid ETH",
+                                text = "0.08 ETH",
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.ExtraBold
                             )
@@ -101,7 +103,15 @@ fun NFTCard(id: String?, imageUrl: String, title: String, owner: User, lastBid: 
                     }
 
                     Button(
-                        onClick = { ctx.startActivity(Intent(ctx, NFTActivity::class.java)) },
+                        onClick = {
+                            val intent = Intent(ctx, NFTDetailsActivity::class.java)
+                            intent.putExtra("assetUrl", nft.assetUrl)
+                            intent.putExtra("title", nft.title)
+                            intent.putExtra("lastBid", "0.08 ETH")
+                            intent.putExtra("ownerAvatar", nft.owner.avatarUrl)
+                            intent.putExtra("ownerName", nft.owner.name)
+                            ctx.startActivity(intent)
+                        },
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = primaryColor)
                     ) {

@@ -130,11 +130,7 @@ fun ExploreScreen() {
 
         for (item in nftItems) {
             NFTCard(
-                id = item.id,
-                imageUrl = item.assetUrl,
-                title = item.title,
-                owner = item.owner,
-                lastBid = "0.08"
+               nft = item
             )
         }
     }
