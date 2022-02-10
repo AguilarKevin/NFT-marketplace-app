@@ -16,7 +16,6 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -24,7 +23,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -100,7 +98,7 @@ fun ExploreScreen() {
 
         OutlinedTextField(
             value = text.value,
-            onValueChange = { text.value = it},
+            onValueChange = { text.value = it },
             singleLine = true,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 backgroundColor = Color.White,
@@ -130,7 +128,7 @@ fun ExploreScreen() {
 
         for (item in nftItems) {
             NFTCard(
-               nft = item
+                nft = item
             )
         }
     }

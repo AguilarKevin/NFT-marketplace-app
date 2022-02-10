@@ -3,12 +3,10 @@ package aguilarkevin.dev.nftmarketplace.ui.explore.components
 import aguilarkevin.dev.nftmarketplace.NFTDetailsActivity
 import aguilarkevin.dev.nftmarketplace.R
 import aguilarkevin.dev.nftmarketplace.models.NFT
-import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.Avatar
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import android.content.Intent
-import android.os.Bundle
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

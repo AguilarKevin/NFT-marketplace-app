@@ -8,14 +8,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun TabItem(label: String, onClick: () -> Unit, selected : Boolean ){
+fun TabItem(label: String, onClick: () -> Unit, selected: Boolean) {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = if(selected){ primaryColor} else { Color.White },
-            contentColor = if(!selected){ primaryColor} else { Color.White },
+            containerColor = if (selected) {
+                primaryColor
+            } else {
+                Color.White
+            },
+            contentColor = if (!selected) {
+                primaryColor
+            } else {
+                Color.White
+            },
         )
-    ){
+    ) {
         Text(text = label)
     }
 }

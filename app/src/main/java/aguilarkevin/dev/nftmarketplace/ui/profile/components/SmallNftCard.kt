@@ -2,7 +2,6 @@ package aguilarkevin.dev.nftmarketplace.ui.profile.components
 
 import aguilarkevin.dev.nftmarketplace.R
 import aguilarkevin.dev.nftmarketplace.models.NFT
-import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerLightGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import androidx.compose.foundation.background
@@ -24,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun SmallNftCard(nft: NFT){
+fun SmallNftCard(nft: NFT) {
     Card(
         shape = RoundedCornerShape(18.dp),
         backgroundColor = Color.White,
@@ -71,7 +70,7 @@ fun SmallNftCard(nft: NFT){
                     Text(
                         text = "Last bid",
                         fontSize = 12.sp,
-                        fontWeight  = FontWeight.SemiBold,
+                        fontWeight = FontWeight.SemiBold,
                         color = Color.LightGray
                     )
 

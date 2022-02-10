@@ -2,7 +2,6 @@ package aguilarkevin.dev.nftmarketplace.ui.profile.components
 
 import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.Avatar
-import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerLightGray
 import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContentGreen
 import androidx.compose.foundation.layout.*
@@ -38,7 +37,9 @@ fun ProfileCard() {
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(
-                modifier = Modifier.padding(horizontal = 14.dp).padding(bottom = 24.dp),
+                modifier = Modifier
+                    .padding(horizontal = 14.dp)
+                    .padding(bottom = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {

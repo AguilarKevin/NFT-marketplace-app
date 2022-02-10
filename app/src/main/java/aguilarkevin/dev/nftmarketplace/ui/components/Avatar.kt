@@ -15,12 +15,12 @@ import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun Avatar(imageUrl:String, size: Dp){
+fun Avatar(imageUrl: String, size: Dp) {
     Box(
         modifier = Modifier
             .background(Color.White, CircleShape)
             .padding(4.dp)
-    ){
+    ) {
         GlideImage(
             imageModel = imageUrl,
             contentScale = ContentScale.Crop,

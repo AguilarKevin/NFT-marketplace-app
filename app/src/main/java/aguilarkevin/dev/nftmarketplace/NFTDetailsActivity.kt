@@ -46,7 +46,7 @@ class NFTDetailsActivity : ComponentActivity() {
 private fun NftActivity() {
 
     val ctx = LocalContext.current
-    val intent =  (ctx as NFTDetailsActivity).intent
+    val intent = (ctx as NFTDetailsActivity).intent
 
     val nft = NFT(
         title = intent.getStringExtra("title") ?: "",

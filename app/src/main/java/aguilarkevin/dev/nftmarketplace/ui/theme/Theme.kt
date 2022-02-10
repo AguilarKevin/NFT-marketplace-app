@@ -24,7 +24,7 @@ private val LightColorPalette = lightColors(
     onSecondary = Color.Black,
     onBackground = backgroundGray,
     onSurface = Color.Black
-    )
+)
 
 @Composable
 fun NFTMarketplaceTheme(
@@ -39,9 +39,9 @@ fun NFTMarketplaceTheme(
 
     val systemUiController = rememberSystemUiController()
 
-        systemUiController.setSystemBarsColor(
-            color = Color.White
-        )
+    systemUiController.setSystemBarsColor(
+        color = Color.White
+    )
 
     MaterialTheme(
         colors = colors,

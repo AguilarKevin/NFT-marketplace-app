@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ProfileBanner(imageUrl: String, height: Dp){
+fun ProfileBanner(imageUrl: String, height: Dp) {
     GlideImage(
         imageModel = imageUrl,
         // Crop, Fit, Inside, FillHeight, FillWidth, None

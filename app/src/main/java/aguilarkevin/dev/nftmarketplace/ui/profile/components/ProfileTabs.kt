@@ -1,33 +1,20 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile.components
 
-import aguilarkevin.dev.nftmarketplace.R
 import aguilarkevin.dev.nftmarketplace.models.Bid
 import aguilarkevin.dev.nftmarketplace.models.NFT
 import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.components.tabs.TabItem
 import aguilarkevin.dev.nftmarketplace.ui.components.tabs.Tabs
-import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
-import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.skydoves.landscapist.glide.GlideImage
 
 @ExperimentalFoundationApi
 @Composable

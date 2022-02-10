@@ -3,7 +3,10 @@ package aguilarkevin.dev.nftmarketplace
 import aguilarkevin.dev.nftmarketplace.ui.explore.ExploreScreen
 import aguilarkevin.dev.nftmarketplace.ui.overview.OverviewScreen
 import aguilarkevin.dev.nftmarketplace.ui.profile.ProfileScreen
-import aguilarkevin.dev.nftmarketplace.ui.theme.*
+import aguilarkevin.dev.nftmarketplace.ui.theme.NFTMarketplaceTheme
+import aguilarkevin.dev.nftmarketplace.ui.theme.backgroundGray
+import aguilarkevin.dev.nftmarketplace.ui.theme.buttonContainerGray
+import aguilarkevin.dev.nftmarketplace.ui.theme.primaryColor
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -12,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,7 +36,11 @@ fun NFTMarketplaceApp() {
             containerColor = backgroundGray,
             bottomBar = { AppNavigationBar(navController) }
         ) { contentPadding ->
-            NavHost(navController, startDestination = "profile", modifier = Modifier.padding(contentPadding)) {
+            NavHost(
+                navController,
+                startDestination = "profile",
+                modifier = Modifier.padding(contentPadding)
+            ) {
                 composable("overview") {
                     OverviewScreen()
                 }
@@ -112,7 +118,7 @@ fun AppPreview() {
 }
 
 
-sealed class Screen(val route: String, val icon: Int ){
+sealed class Screen(val route: String, val icon: Int) {
     object Overview : Screen("overview", R.drawable.ic_home)
     object Explore : Screen("explore", R.drawable.ic_search)
     object Alerts : Screen("alerts", R.drawable.ic_chat_bubble)

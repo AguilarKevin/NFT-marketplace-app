@@ -1,9 +1,6 @@
 package aguilarkevin.dev.nftmarketplace.ui.profile
 
 import aguilarkevin.dev.nftmarketplace.R
-import aguilarkevin.dev.nftmarketplace.models.Bid
-import aguilarkevin.dev.nftmarketplace.models.NFT
-import aguilarkevin.dev.nftmarketplace.models.User
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileCard
 import aguilarkevin.dev.nftmarketplace.ui.profile.components.ProfileTabs
 import aguilarkevin.dev.nftmarketplace.ui.theme.backgroundGray
@@ -13,7 +10,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
